@@ -54,15 +54,21 @@ function extractURL(jobDetails) {
   url = url.replace(/.*\/\//, '');
   url = url.replace(/^www./, '');
   url = url.replace(/^jobs?\.?/, '');
+  url = url.replace(/^careers?\.?/, '');
   var company = url.substr(0, url.indexOf('.'));
 
-  if (company)
+  if (company && company != '') {
+    company = company.charAt(0).toUpperCase() + company.slice(1);
     jobDetails.company = company;
+  }
 }
 
+/** 
+ * Set title to value of 1st h1 element
+*/
 function findTitle(jobDetails) {
   var h1 = document.getElementsByTagName('h1')
-  if (h1[0].innerHTML && h1[0].innerHTML != '')
+  if (h1 && h1[0] && h1[0].innerHTML != '')
     jobDetails.title = h1[0].innerHTML;
 }
 
@@ -78,4 +84,3 @@ function findTitle(jobDetails) {
 
   console.log(jobDetails);
 })();
->>>>>>> 0115ad532533340d2f0965f8f219bde63d3092b0
