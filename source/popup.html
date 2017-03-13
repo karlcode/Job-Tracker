@@ -12,12 +12,21 @@
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
-      #status {
+      #myTable {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
-        overflow: hidden;
+        
         max-width: 400px;
+      }
+      th{
+        min-width: 180px;
+        width: auto;
+        text-align: left;
+      }
+      td{
+        min-width: 180px;
+        width: auto;
       }
     </style>
 
@@ -30,8 +39,16 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
+    <table id="myTable">
+        <tr>
+          <th>Job Title</th>
+          <th>Employer</th> 
+          <th>Date Applied</th>
+          <th>Progress</th>
+        </tr>
+    </table>
+    <button id="add">Add Row</button>
+   
   </body>
 </html>
 
